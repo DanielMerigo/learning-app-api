@@ -101,8 +101,6 @@ app.get("/pokemons", function (req, res) {
     let fields = req.query.fields;
     let filteredPokemons = [];
 
-    console.log(fields)
-    
     if (fields) {
       fields = fields.split(",");
       filteredPokemons = pokemons.map((pokemon) =>
@@ -117,7 +115,6 @@ app.get("/pokemons", function (req, res) {
       filteredPokemons = pokemons;
     }
     res.send(filteredPokemons);
-    console.log(filteredPokemons)
   });
   
 
