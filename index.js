@@ -98,23 +98,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
 
 app.get("/pokemons", function (req, res) {
-    let fields = req.query.fields;
-    let filteredPokemons = [];
-
-    if (fields) {
-      fields = fields.split(",");
-      filteredPokemons = pokemons.map((pokemon) =>
-        fields.reduce((obj, field) => {
-          if (pokemon.hasOwnProperty(field)) {
-            obj[field] = pokemon[field];
-          }
-          return obj;
-        }, {})
-      );
-    } else {
-      filteredPokemons = pokemons;
-    }
-    res.send(filteredPokemons);
+    res.send(pokemons);
   });
   
 
